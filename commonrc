@@ -1,0 +1,77 @@
+export TERM="xterm-256color"
+export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export PATH=".:~/bin:~/local/bin:~/opt/hadoop/bin:/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/usr/local/share/npm/bin:/Users/sammy/Library/Android/sdk/platform-tools:${PATH}"
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+. ~/dot_files/aliases
+[ -f ~/dot_files/aliases_for_work ] && source ~/dot_files/aliases_for_work
+
+
+
+## for vim
+export EDITOR=vim
+#export EDITOR='subl -w'
+export CSCOPE_DB=~/.vim/cscope.out
+
+
+## for homebrew
+#export HOMEBREW_GITHUB_API_TOKEN=af51220aec6ff9d6c32c29ce3aeaa9eca808031a
+
+
+## for chruby
+if [[ -f /usr/local/share/chruby/chruby.sh ]]
+then
+  source /usr/local/share/chruby/chruby.sh
+  source /usr/local/share/chruby/auto.sh
+fi
+
+## for pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+# pyenv에서 matplot을 사용하기 위해 --enable-unicode=ucs2 추가
+export PYTHON_CONFIGURE_OPTS="--enable-unicode=ucs2 --enable-shared"
+if which pyenv > /dev/null 2>&1; then eval "$(pyenv init -)"; fi
+### for pyenv-virtualenv
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# added by travis gem
+[ -f /Users/sammy/.travis/travis.sh ] && source /Users/sammy/.travis/travis.sh
+
+## for thefuck. thefuck이 pip로 설치되므로 pyenv 설정보다 뒤로 와야 함.
+if which thefuck > /dev/null 2>&1; then eval "$(thefuck --alias)"; fi
+
+## for dcos-cli
+# path to the DC/OS CLI binary
+if [[ "$PATH" != *"/Users/sammy/opt/dcos-cli/bin"* ]];
+  then export PATH=$PATH:/Users/sammy/opt/dcos-cli/bin;
+fi
+
+
+if [[ "$OS_NAME" == "Darwin" ]]
+then
+  ## for osx
+
+  ## for oracle
+  # sqlplus가 ~/opt 에 설치 되어있다고 가정
+  export DYLD_LIBRARY_PATH="$HOME/opt/instantclient_12_1"
+  export TNS_ADMIN="$HOME/opt/instantclient_12_1"
+  export ORACLE_HOME="$HOME/opt/instantclient_12_1"
+  export FORCE_RPATH=1
+  export OCI_LIB="$HOME/opt/instantclient_12_1"
+  export OCI_INCLUDE_DIR="$HOME/opt/instantclient_12_1/sdk/include"
+  export PATH=$DYLD_LIBRARY_PATH:$PATH
+
+
+  ### for hadoop doopey
+  export JAVA_HOME=`/usr/libexec/java_home`
+  export HADOOP_HOME=$HOME/opt/hadoop
+  export HIVE_HOME=$HOME/opt/hive
+fi
+
+
+## for git prompt
+GIT_PROMPT_ONLY_IN_REPO=1

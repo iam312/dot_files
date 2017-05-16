@@ -1,0 +1,24 @@
+# home alias
+alias eclipse='(cd ~/opt/eclipse && ./eclipse)'
+if [[ "$OS_NAME" == "Darwin" ]]
+then
+  ## for osx
+  alias ls='CLICOLOR_FORCE=1 ls -G'
+else
+  ## for linux
+  alias ls='ls --color'
+fi
+alias vi='vim'
+alias less='less -G'
+alias more='less'
+
+
+## for home
+alias cello='ssh samil@192.168.1.10'
+alias harp-vm='ssh samil@192.168.56.101'
+alias harp-vm-ubuntu='ssh samil@192.168.56.102'
+alias harp-vm-debian='ssh samil@192.168.56.103'
+alias harp-vm-debian2='ssh samil@192.168.56.101'
+
+alias oracle='docker run --shm-size=1g -p 1521:1521 -p 8080:8080 -v ~/opt/var/oracle:/u01/app/oracle/oradata oracle/database:11.2.0.2-xe'
+alias kcat='/usr/local/bin/kafkacat  -X broker.version.fallback=0.8.2.2'
