@@ -17,6 +17,9 @@ INSTALL
 6. chruby
 7. ruby-install
 
+INSTALL for opensuse
+---------------------
+1. ./install_for_opensuse.sh
 
 
 
@@ -33,3 +36,6 @@ pip-review --local --interactive
 3. tpm
 prefix + U
 https://github.com/tmux-plugins/tpm
+
+4. pyenv
+pyenv update

@@ -16,6 +16,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # install pyenv
 git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 
+# install pyenv-update
+git clone git://github.com/yyuu/pyenv-update.git ~/.pyenv/plugins/pyenv-update
+
 # install chruby
 cd ~/opt
 wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
