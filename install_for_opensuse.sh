@@ -5,7 +5,7 @@ sudo zypper install -y  git-core tmux zsh vim vim-data wget tar make gcc gcc-c++
 cp -r .bashrc .gitignore .matplotlib .tmux.conf .vimrc .zshrc ~/
 
 # install antigen
-git clone https://github.com/zsh-users/antigen.git ~/opt/antigen
+git clone -b master https://github.com/zsh-users/antigen.git ~/opt/antigen
 
 # install tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
