@@ -22,3 +22,4 @@ alias harp-vm-debian2='ssh samil@192.168.56.101'
 
 alias oracle='docker run --shm-size=1g -p 1521:1521 -p 8080:8080 -v ~/opt/var/oracle:/u01/app/oracle/oradata oracle/database:11.2.0.2-xe'
 alias kcat='/usr/local/bin/kafkacat  -X broker.version.fallback=0.8.2.2'
+alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
