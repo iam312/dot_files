@@ -26,10 +26,11 @@ Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'https://github.com/Valloric/YouCompleteMe.git'
 Plugin 'https://github.com/mileszs/ack.vim.git'
+Plugin 'nvie/vim-flake8' " for python syntax
 Plugin 'https://github.com/davidhalter/jedi-vim.git' " for python auto-complete
+Plugin 'https://github.com/jmcantrell/vim-virtualenv.git' " for pyenv-virtualenv
 Plugin 'docker/docker', {'rtp':'/contrib/syntax/vim/'}
 Plugin 'scrooloose/syntastic' " for syntax checking
-Plugin 'nvie/vim-flake8' " for python syntax
 Plugin 'vim-scripts/indentpython.vim' " for python autoindent
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
@@ -149,10 +150,10 @@ nmap <silent> <leader>l :TestLast<CR>
 
 "python with virtualenv support
 py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+"  project_base_dir = os.environ['VIRTUAL_ENV']
+"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"  execfile(activate_this, dict(__file__=activate_this))
 EOF

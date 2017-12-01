@@ -13,6 +13,9 @@ git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 # install pyenv-update
 git clone git://github.com/yyuu/pyenv-update.git ~/.pyenv/plugins/pyenv-update
 
+# install pyenv-virtualenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+
 # install chruby
 cd ~/opt
 wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
