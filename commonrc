@@ -75,3 +75,6 @@ fi
 
 ## for git prompt
 GIT_PROMPT_ONLY_IN_REPO=1
+
+## for prompt with SHLVL
+export PROMPT="${PROMPT}(${SHLVL}) "
