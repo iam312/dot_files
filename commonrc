@@ -1,7 +1,7 @@
 export TERM="xterm-256color"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
-export PATH=".:~/bin:~/local/bin:~/opt/hadoop/bin:/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/usr/local/share/npm/bin:/Users/sammy/Library/Android/sdk/platform-tools:${PATH}"
+export PATH=".:~/bin:~/local/bin:~/opt/hadoop/bin:/usr/local/sbin:/usr/local/bin:/Developer/usr/bin:/usr/local/share/npm/bin:/Users/sammy/Library/Android/sdk/platform-tools:/usr/local/opt/mysql@5.7/bin:${PATH}"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -41,6 +41,23 @@ then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+
+## for sbtenv
+if [[ -f /usr/local/bin/sbtenv ]]
+then
+  export PATH="${HOME}/.sbtenv/bin:${PATH}"
+  eval "$(sbtenv init -)"
+fi
+
+
+## for scalaenv
+if [[ -f /usr/local/bin/scalaenv ]]
+then
+  export PATH="${HOME}/.scalaenv/bin:${PATH}"
+  eval "$(scalaenv init -)"
+fi
+
+
 # added by travis gem
 [ -f /Users/sammy/.travis/travis.sh ] && source /Users/sammy/.travis/travis.sh
 
@@ -54,26 +71,27 @@ if [[ "$PATH" != *"/Users/sammy/opt/dcos-cli/bin"* ]];
 fi
 
 
-if [[ "$OS_NAME" == "Darwin" ]]
-then
-  ## for osx
-
-  ## for oracle
-  # sqlplus가 ~/opt 에 설치 되어있다고 가정
-  export DYLD_LIBRARY_PATH="$HOME/opt/instantclient_12_1"
-  export TNS_ADMIN="$HOME/opt/instantclient_12_1"
-  export ORACLE_HOME="$HOME/opt/instantclient_12_1"
-  export FORCE_RPATH=1
-  export OCI_LIB="$HOME/opt/instantclient_12_1"
-  export OCI_INCLUDE_DIR="$HOME/opt/instantclient_12_1/sdk/include"
-  export PATH=$DYLD_LIBRARY_PATH:$PATH
-
-
-  ### for hadoop doopey
-  export JAVA_HOME=`/usr/libexec/java_home`
-  export HADOOP_HOME=$HOME/opt/hadoop
-  export HIVE_HOME=$HOME/opt/hive
-fi
+# oracle cli와 doopey를 더이상 사용하지 않으므로 막음. 2019.10.22
+#if [[ "$OS_NAME" == "Darwin" ]]
+#then
+#  ## for osx
+#
+#  ## for oracle
+#  # sqlplus가 ~/opt 에 설치 되어있다고 가정
+#  export DYLD_LIBRARY_PATH="$HOME/opt/instantclient_12_2"
+#  export TNS_ADMIN="$HOME/opt/instantclient_12_2"
+#  export ORACLE_HOME="$HOME/opt/instantclient_12_2"
+#  export FORCE_RPATH=1
+#  export OCI_LIB="$HOME/opt/instantclient_12_2"
+#  export OCI_INCLUDE_DIR="$HOME/opt/instantclient_12_2/sdk/include"
+#  export PATH=$DYLD_LIBRARY_PATH:$PATH
+#
+#
+#  ### for hadoop doopey
+#  export JAVA_HOME=`/usr/libexec/java_home`
+#  export HADOOP_HOME=$HOME/opt/hadoop
+#  export HIVE_HOME=$HOME/opt/hive
+#fi
 
 
 ## for git prompt
@@ -81,3 +99,17 @@ GIT_PROMPT_ONLY_IN_REPO=1
 
 ## for prompt with SHLVL
 export PROMPT="${PROMPT}(${SHLVL}) "
+
+
+## for java
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+#export JAVA_9_HOME=$(/usr/libexec/java_home -v9)
+#export JAVA_10_HOME=$(/usr/libexec/java_home -v10)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+
+alias java8='export JAVA_HOME=$JAVA_8_HOME'
+#alias java9='export JAVA_HOME=$JAVA_9_HOME'
+#alias java10='export JAVA_HOME=$JAVA_10_HOME'
+alias java11='export JAVA_HOME=$JAVA_11_HOME'
+
+java11

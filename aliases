@@ -9,8 +9,9 @@ else
   alias ls='ls --color'
 fi
 alias vi='vim'
-alias less='less -G'
+alias less='less -G -R'
 alias more='less'
+alias grep='grep --color=always'
 
 
 ## for home
@@ -23,3 +24,5 @@ alias harp-vm-debian2='ssh samil@192.168.56.101'
 alias oracle='docker run --shm-size=1g -p 1521:1521 -p 8080:8080 -v ~/opt/var/oracle:/u01/app/oracle/oradata oracle/database:11.2.0.2-xe'
 alias kcat='/usr/local/bin/kafkacat  -X broker.version.fallback=0.8.2.2'
 alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
+alias ec2_iam312='ssh -i "~/aws_keyfiles/iam312.seoul.pem" ec2-user@ec2-13-125-242-84.ap-northeast-2.compute.amazonaws.com'
+alias ec2_bakery='ssh -i "~/aws_keyfiles/thefunbakery.seoul.pem" ec2-54-180-103-39.ap-northeast-2.compute.amazonaws.com'
