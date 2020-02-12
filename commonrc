@@ -19,7 +19,7 @@ export CSCOPE_DB=~/.vim/cscope.out
 
 
 ## for homebrew
-#export HOMEBREW_GITHUB_API_TOKEN=af51220aec6ff9d6c32c29ce3aeaa9eca808031a
+export HOMEBREW_GITHUB_API_TOKEN=571a0ecb3c57748ce957dcfa67479d7fe1330fe2
 
 
 ## for chruby
@@ -103,13 +103,15 @@ export PROMPT="${PROMPT}(${SHLVL}) "
 
 ## for java
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
-#export JAVA_9_HOME=$(/usr/libexec/java_home -v9)
-#export JAVA_10_HOME=$(/usr/libexec/java_home -v10)
 export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+export JAVA_13_HOME=$(/usr/libexec/java_home -v13)
 
 alias java8='export JAVA_HOME=$JAVA_8_HOME'
-#alias java9='export JAVA_HOME=$JAVA_9_HOME'
-#alias java10='export JAVA_HOME=$JAVA_10_HOME'
 alias java11='export JAVA_HOME=$JAVA_11_HOME'
+alias java13='export JAVA_HOME=$JAVA_13_HOME'
 
-java11
+java13
+
+
+# for helm2
+export PATH="/usr/local/opt/helm@2/bin:$PATH"
