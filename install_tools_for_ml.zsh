@@ -1,4 +1,10 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
+
+if [ -z "$ZSH_VERSION" ]; then
+  echo "Error: This script must be run with zsh."
+  exit 1
+fi
+
 
 ################################################
 ## To use this shell script, your login shell must be zsh.
