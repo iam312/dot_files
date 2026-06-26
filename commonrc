@@ -113,5 +113,13 @@ alias java13='export JAVA_HOME=$JAVA_13_HOME'
 java13
 
 
-# for helm2
+## for helm2
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
+
+## for codex
+if [ -d "${HOME}/.local/bin" ]; then
+  case ":${PATH}:" in
+    *":${HOME}/.local/bin:"*) ;;
+    *) export PATH="${HOME}/.local/bin:${PATH}" ;;
+  esac
+fi

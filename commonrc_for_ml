@@ -100,5 +100,13 @@ GIT_PROMPT_ONLY_IN_REPO=1
 ## for prompt with SHLVL
 export PROMPT="${PROMPT}(${SHLVL}) "
 
-# for helm2
+## for helm2
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
+
+## for codex
+if [ -d "${HOME}/.local/bin" ]; then
+  case ":${PATH}:" in
+    *":${HOME}/.local/bin:"*) ;;
+    *) export PATH="${HOME}/.local/bin:${PATH}" ;;
+  esac
+fi
